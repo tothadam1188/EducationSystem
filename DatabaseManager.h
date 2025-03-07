@@ -22,4 +22,6 @@ public:
 	void updateTeacher(std::string ID, Teacher teacher);
 	Teacher getTeacher(std::string ID);
 	void printAllTeachers();
+	std::vector<Student> getStudentDatabase();
+	std::vector<Teacher> getTeacherDatabase();
 };

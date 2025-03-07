@@ -114,3 +114,13 @@ void DatabaseManager::printAllTeachers()
 		std::cout << std::endl;
 	}
 }
+
+std::vector<Student> DatabaseManager::getStudentDatabase()
+{
+	return studentDatabase;
+}
+
+std::vector<Teacher> DatabaseManager::getTeacherDatabase()
+{
+	return teacherDatabase;
+}

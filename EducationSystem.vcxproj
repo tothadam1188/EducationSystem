@@ -127,7 +127,19 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="BaseAcademics.cpp" />
+    <ClCompile Include="DatabaseManager.cpp" />
     <ClCompile Include="EducationSystem.cpp" />
+    <ClCompile Include="Student.cpp" />
+    <ClCompile Include="Subject.cpp" />
+    <ClCompile Include="Teacher.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="BaseAcademics.h" />
+    <ClInclude Include="DatabaseManager.h" />
+    <ClInclude Include="Student.h" />
+    <ClInclude Include="Subject.h" />
+    <ClInclude Include="Teacher.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
