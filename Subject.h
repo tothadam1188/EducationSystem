@@ -3,7 +3,6 @@
 #include <vector>
 #include "Teacher.h"
 #include "Student.h"
-#include "DatabaseManager.h"
 
 class Subject
 {
@@ -16,7 +15,7 @@ private:
 	std::string description;
 
 public:
-	Subject(std::string name, Teacher teacher, std::vector<Student> studentList, int credits, std::string location, std::string description, DatabaseManager dbm);
+	Subject(std::string name, Teacher teacher, std::vector<Student> studentList, int credits, std::string location, std::string description);
 	std::string getName();
 	Teacher getTeacher();
 	std::vector<Student> getStudentList();

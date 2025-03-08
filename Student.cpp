@@ -1,16 +1,19 @@
 #include "Student.h"
 #include <string>
+#include <vector>
+#include "Grade.h"
+
+using namespace std;
 
 Student::Student()
 {
 	this->major = "";
 	this->semester = 0;
-	this->GPA = 0;
 	this->currentCredits = 0;
 	this->isActiveSemester = false;
 }
 
-Student::Student(std::string ID, std::string firstName, std::string lastName, std::string birthDate, std::string major, int semester, double GPA, int currentCredits, bool isActiveSemester)
+Student::Student(std::string ID, std::string firstName, std::string lastName, std::string birthDate, std::string major, int semester, int currentCredits, bool isActiveSemester, vector<Grade> gradeList)
 {
 	this->setID(ID);
 	this->setFirstName(firstName);
@@ -18,9 +21,10 @@ Student::Student(std::string ID, std::string firstName, std::string lastName, st
 	this->setBirthDate(birthDate);
 	this->major = major;
 	this->semester = semester;
-	this->GPA = GPA;
 	this->currentCredits = currentCredits;
 	this->isActiveSemester = isActiveSemester;
+	this->gradeList = gradeList;
+	this->GPA = calculateGPA();
 }
 
 std::string Student::getMajor()
@@ -73,9 +77,14 @@ void Student::setIsActiveSemester(bool isActiveSemester)
 	this->isActiveSemester = isActiveSemester;
 }
 
-int Student::calculateGPA()
-{
-	int GPA = 0;
-	//pass
-	return GPA;
+double Student::calculateGPA()
+{  
+	int CreditSum = 0;  
+	double GradeSum = 0.0;  
+	for (const auto& grade : gradeList)  
+	{  
+		CreditSum += grade.getCredit();
+		GradeSum += grade.getGradeNum() * grade.getCredit();  
+	}  
+	return (CreditSum == 0) ? 0.0 : GradeSum / CreditSum;  
 }

@@ -130,6 +130,7 @@
     <ClCompile Include="BaseAcademics.cpp" />
     <ClCompile Include="DatabaseManager.cpp" />
     <ClCompile Include="EducationSystem.cpp" />
+    <ClCompile Include="Grade.cpp" />
     <ClCompile Include="Student.cpp" />
     <ClCompile Include="Subject.cpp" />
     <ClCompile Include="Teacher.cpp" />
@@ -137,6 +138,7 @@
   <ItemGroup>
     <ClInclude Include="BaseAcademics.h" />
     <ClInclude Include="DatabaseManager.h" />
+    <ClInclude Include="Grade.h" />
     <ClInclude Include="Student.h" />
     <ClInclude Include="Subject.h" />
     <ClInclude Include="Teacher.h" />

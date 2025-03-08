@@ -124,3 +124,56 @@ std::vector<Teacher> DatabaseManager::getTeacherDatabase()
 {
 	return teacherDatabase;
 }
+
+void DatabaseManager::addSubject(Subject subject)
+{
+	subjectDatabase.push_back(subject);
+}
+
+void DatabaseManager::removeSubject(std::string name)
+{
+	for (int i = 0; i < subjectDatabase.size(); i++)
+	{
+		if (subjectDatabase[i].getName() == name)
+		{
+			subjectDatabase.erase(subjectDatabase.begin() + i);
+			break;
+		}
+	}
+}
+
+void DatabaseManager::updateSubject(std::string name, Subject subject)
+{
+	for (int i = 0; i < subjectDatabase.size(); i++)
+	{
+		if (subjectDatabase[i].getName() == name)
+		{
+			subjectDatabase[i] = subject;
+			break;
+		}
+	}
+}
+
+Subject DatabaseManager::getSubject(std::string name)
+{
+	for (int i = 0; i < subjectDatabase.size(); i++)
+	{
+		if (subjectDatabase[i].getName() == name)
+		{
+			return subjectDatabase[i];
+		}
+	}
+}
+
+void DatabaseManager::printAllSubjects()
+{
+	for (int i = 0; i < subjectDatabase.size(); i++)
+	{
+		subjectDatabase[i].printSubjects();
+	}
+}
+
+std::vector<Subject> DatabaseManager::getSubjectDatabase()
+{
+	return subjectDatabase;
+}

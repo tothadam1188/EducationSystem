@@ -2,7 +2,7 @@
 #include <iostream>
 #include "DatabaseManager.h"
 
-Subject::Subject(std::string name, Teacher teacher, std::vector<Student> studentList, int credits, std::string location, std::string description, DatabaseManager dbm)
+Subject::Subject(std::string name, Teacher teacher, std::vector<Student> studentList, int credits, std::string location, std::string description)
 {
 	this->name = name;
 	this->teacher = teacher;
@@ -10,20 +10,20 @@ Subject::Subject(std::string name, Teacher teacher, std::vector<Student> student
 	this->credits = credits;
 	this->location = location;
 	this->description = description;
-	std::vector<Teacher> teacherDatabase = dbm.getTeacherDatabase();
-	auto it = std::find(teacherDatabase.begin(), teacherDatabase.end(), teacher);
-	if (it == teacherDatabase.end()) {
-		dbm.addTeacher(teacher);
-	}
+	//std::vector<Teacher> teacherDatabase = dbm.getTeacherDatabase();
+	//auto it = std::find(teacherDatabase.begin(), teacherDatabase.end(), teacher);
+	//if (it == teacherDatabase.end()) {
+	//	dbm.addTeacher(teacher);
+	//}
 
-	std::vector<Student> studentDatabase = dbm.getStudentDatabase();
-	for (int i = 0; i < studentList.size(); i++)
-	{
-		auto it = std::find(studentDatabase.begin(), studentDatabase.end(), studentList[i]);
-		if (it == studentDatabase.end()) {
-			dbm.addStudent(studentList[i]);
-		}
-	}
+	//std::vector<Student> studentDatabase = dbm.getStudentDatabase();
+	//for (int i = 0; i < studentList.size(); i++)
+	//{
+	//	auto it = std::find(studentDatabase.begin(), studentDatabase.end(), studentList[i]);
+	//	if (it == studentDatabase.end()) {
+	//		dbm.addStudent(studentList[i]);
+	//	}
+	//}
 }
 
 std::string Subject::getName()
@@ -105,14 +105,15 @@ void Subject::removeStudent(Student student)
 
 void Subject::printSubjects()
 {
-	std::cout << "Subject: " << name << std::endl;
+	std::cout << "\nSubject: " << name << std::endl;
 	std::cout << "Teacher: " << teacher.getFirstName() << " " << teacher.getLastName() << std::endl;
 	std::cout << "Credits: " << credits << std::endl;
 	std::cout << "Location: " << location << std::endl;
 	std::cout << "Description: " << description << std::endl;
 	std::cout << "Students: " << std::endl;
-	for (int i = 0; i < studentList.size(); i++)
+	auto it = studentList.begin();
+	for (it; it != studentList.end(); it++)
 	{
-		std::cout << studentList[i].getFirstName() << " " << studentList[i].getLastName() << std::endl;
+		std::cout << "\t" << it->getID() << " " << it->getFirstName() << " " << it->getLastName() << std::endl;
 	}
 }
